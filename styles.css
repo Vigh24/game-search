@@ -734,40 +734,32 @@ h1 {
 .title-section {
     text-align: center;
     margin-bottom: 2rem;
+    width: 100%;
+}
+
+.title-content {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 0.5rem;
+    margin-bottom: 1rem;
 }
 
-.loader-card {
-    --bg-color: #05071b;
-    background-color: var(--bg-color);
-    padding: 0.5rem 1rem;
-    border-radius: 1.25rem;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-    height: 40px;
-    display: flex;
-    align-items: center;
-    margin-top: 1rem;
+h1 {
+    font-size: 2.5rem;
+    margin: 0;
+    background: linear-gradient(to right, #fff, #b8b9cf);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
-.loader {
-    color: rgb(124, 124, 124);
-    font-family: "Inter", sans-serif;
-    font-weight: 500;
-    font-size: 20px;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-}
-
-.loader p {
+.subtitle {
+    color: #b8b9cf;
+    font-size: 1.1rem;
     margin: 0;
 }
 
-.words {
-    overflow: hidden;
-    height: 25px;
-    position: relative;
+.loader-card {
+    margin: 1rem auto 0;
+    width: fit-content;
 }
