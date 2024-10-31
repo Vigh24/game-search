@@ -42,10 +42,13 @@ h1 {
 }
 
 .card {
-    background: #05071b;
-    padding: 2rem;
-    border-radius: 20px;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    background: rgba(5, 7, 27, 0.8);
+    padding: 2.5rem;
+    border-radius: 24px;
+    box-shadow: 
+        0 8px 32px rgba(0, 0, 0, 0.3),
+        0 0 0 1px rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
     color: #fff;
     position: relative;
     overflow: visible;
@@ -53,6 +56,7 @@ h1 {
     width: 100%;
     box-sizing: border-box;
     margin: 0 auto;
+    max-width: 1000px;
 }
 
 .input {
@@ -492,22 +496,26 @@ h1 {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 1.5rem;
-    margin: 1.5rem auto;
-    max-width: 1000px;
-    width: 100%;
+    margin: 2rem auto;
+    max-width: 900px;
+    padding: 0 1rem;
 }
 
 .stat-card {
     background: rgba(88, 101, 242, 0.1);
-    padding: 1rem;
-    border-radius: 15px;
+    padding: 1.5rem;
+    border-radius: 20px;
     text-align: center;
-    backdrop-filter: blur(5px);
-    transition: transform 0.3s;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.1);
 }
 
 .stat-card:hover {
     transform: translateY(-5px);
+    background: rgba(88, 101, 242, 0.15);
+    border-color: rgba(255, 255, 255, 0.1);
 }
 
 .stat-icon {
@@ -533,43 +541,50 @@ h1 {
 
 .game-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 1.5rem;
     margin: 1.5rem 0;
+    padding: 0.5rem;
 }
 
 .game-card {
     background: rgba(88, 101, 242, 0.1);
-    padding: 1rem;
-    border-radius: 10px;
+    padding: 1.5rem;
+    border-radius: 16px;
     text-align: center;
     transition: all 0.3s;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    cursor: pointer;
 }
 
 .game-card:hover {
     transform: translateY(-5px);
-    background: rgba(88, 101, 242, 0.2);
+    background: rgba(88, 101, 242, 0.15);
+    border-color: rgba(255, 255, 255, 0.1);
 }
 
 /* Categories */
 .category-tags {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.5rem;
+    gap: 0.75rem;
     margin: 1rem 0;
+    justify-content: center;
 }
 
 .category-tag {
     background: rgba(169, 199, 255, 0.1);
-    padding: 0.5rem 1rem;
+    padding: 0.75rem 1.25rem;
     border-radius: 20px;
     cursor: pointer;
     transition: all 0.3s;
+    border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .category-tag:hover {
-    background: rgba(169, 199, 255, 0.2);
+    background: rgba(169, 199, 255, 0.15);
     transform: translateY(-2px);
+    border-color: rgba(255, 255, 255, 0.1);
 }
 
 /* Latest Updates */
@@ -593,8 +608,10 @@ h1 {
 
 .footer-stats {
     display: flex;
-    justify-content: space-around;
-    margin-bottom: 1rem;
+    justify-content: center;
+    gap: 2rem;
+    margin-bottom: 1.5rem;
+    color: #a9c7ff;
 }
 
 .footer-links {
@@ -606,11 +623,14 @@ h1 {
 .footer-links a {
     color: #a9c7ff;
     text-decoration: none;
-    transition: color 0.3s;
+    transition: all 0.3s;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
 }
 
 .footer-links a:hover {
     color: #5865F2;
+    background: rgba(88, 101, 242, 0.1);
 }
 
 /* Responsive adjustments */
