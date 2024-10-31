@@ -1,1 +1,98 @@
-/* Copy all the styles from the original styles.css */
+/* Update search container styles */
+#search-container {
+    position: relative;
+    width: 100%;
+    max-width: 500px;
+    margin: 2rem auto;
+    height: 56px;
+}
+
+.input {
+    background-color: #05071b;
+    border: none;
+    width: 301px;
+    height: 56px;
+    border-radius: 10px;
+    color: #a9c7ff;
+    padding-inline: 59px;
+    font-size: 18px;
+    position: relative;
+    z-index: 2;
+}
+
+.input::placeholder {
+    color: #6e8cff;
+}
+
+#main {
+    position: relative;
+    width: fit-content;
+}
+
+.nebula {
+    overflow: hidden;
+    filter: blur(30px);
+    opacity: 0.4;
+    max-height: 130px;
+    max-width: 354px;
+}
+
+.nebula:before {
+    content: "";
+    z-index: -2;
+    text-align: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(60deg);
+    position: absolute;
+    width: 999px;
+    height: 999px;
+    background-repeat: no-repeat;
+    background-position: 0 0;
+    background-image: conic-gradient(
+        #000,
+        #4d6dff 5%,
+        #000 38%,
+        #000 50%,
+        #6e8cff 60%,
+        #000 87%
+    );
+    transition: all 2s;
+}
+
+/* Add hover and focus animations */
+#search-container:hover > .starfield::before {
+    transform: translate(-50%, -50%) rotate(-98deg);
+}
+
+#search-container:hover > .nebula::before {
+    transform: translate(-50%, -50%) rotate(-120deg);
+}
+
+#search-container:hover > .stardust::before {
+    transform: translate(-50%, -50%) rotate(-97deg);
+}
+
+#search-container:hover > .cosmic-ring::before {
+    transform: translate(-50%, -50%) rotate(-110deg);
+}
+
+#search-container:focus-within > .starfield::before {
+    transform: translate(-50%, -50%) rotate(442deg);
+    transition: all 4s;
+}
+
+#search-container:focus-within > .nebula::before {
+    transform: translate(-50%, -50%) rotate(420deg);
+    transition: all 4s;
+}
+
+#search-container:focus-within > .stardust::before {
+    transform: translate(-50%, -50%) rotate(443deg);
+    transition: all 4s;
+}
+
+#search-container:focus-within > .cosmic-ring::before {
+    transform: translate(-50%, -50%) rotate(430deg);
+    transition: all 4s;
+}
