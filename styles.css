@@ -32,15 +32,13 @@ h1 {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     text-align: center;
-    width: 100%;
 }
 
 .subtitle {
     color: #b8b9cf;
     font-size: 1.1rem;
-    margin: 0;
+    margin: 0 0 1rem 0;
     text-align: center;
-    width: 100%;
 }
 
 .card {
@@ -760,6 +758,6 @@ h1 {
 }
 
 .loader-card {
-    margin: 1rem auto 0;
+    margin: 1rem auto;
     width: fit-content;
 }
