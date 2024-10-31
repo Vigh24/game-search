@@ -1399,3 +1399,63 @@ h2 {
         height: 90px;
     }
 }
+
+/* Add these new styles for background animation */
+.stars {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+}
+
+.star {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    animation: twinkle var(--duration) infinite;
+}
+
+@keyframes twinkle {
+    0%, 100% {
+        opacity: 0.2;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.2);
+    }
+}
+
+/* Update background-galaxy for more depth */
+.background-galaxy {
+    height: 100vh;
+    width: 100vw;
+    background: 
+        radial-gradient(1px 1px at 25% 25%, white 1px, transparent 0),
+        radial-gradient(1px 1px at 50% 50%, white 1px, transparent 0),
+        radial-gradient(1px 1px at 75% 75%, white 1px, transparent 0),
+        radial-gradient(2px 2px at 15% 15%, white 1px, transparent 0),
+        radial-gradient(2px 2px at 85% 85%, white 1px, transparent 0),
+        radial-gradient(circle at center, rgba(88, 101, 242, 0.1) 0%, transparent 60%),
+        radial-gradient(circle at 20% 80%, rgba(77, 109, 255, 0.1) 0%, transparent 40%),
+        radial-gradient(circle at 80% 20%, rgba(169, 199, 255, 0.1) 0%, transparent 40%),
+        linear-gradient(135deg, #1a1c2c 0%, #2a2d4f 100%);
+    background-size: 
+        100px 100px,
+        120px 120px,
+        150px 150px,
+        200px 200px,
+        250px 250px,
+        100% 100%,
+        100% 100%,
+        100% 100%,
+        100% 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -2;
+    animation: backgroundPulse 10s infinite;
+}
