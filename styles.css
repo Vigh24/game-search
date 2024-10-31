@@ -96,3 +96,41 @@
     transform: translate(-50%, -50%) rotate(430deg);
     transition: all 4s;
 }
+
+/* Add testing overlay styles */
+#test-overlay {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: rgba(88, 101, 242, 0.9);
+    padding: 15px;
+    border-radius: 12px;
+    color: white;
+    z-index: 9999;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.test-content {
+    font-size: 14px;
+}
+
+.test-content h3 {
+    margin: 0 0 10px 0;
+    font-size: 16px;
+}
+
+.test-content p {
+    margin: 5px 0;
+    opacity: 0.9;
+}
+
+#test-version {
+    font-weight: bold;
+    color: #a9c7ff;
+}
+
+#test-status {
+    color: #3ba55c;
+}
