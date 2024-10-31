@@ -1032,9 +1032,6 @@ h1 {
     padding: 15px 50px;
     font-size: 18px;
     color: #fff;
-}
-
-.search-box .input:focus {
     outline: none;
 }
 
@@ -1046,6 +1043,15 @@ h1 {
     width: 24px;
     height: 24px;
     color: #a9c7ff;
+    cursor: pointer;
+}
+
+/* Remove any conflicting input styles */
+.input {
+    width: 100%;
+    max-width: none;
+    border: none;
+    background: transparent;
 }
 
 /* Enhanced sections */

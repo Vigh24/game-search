@@ -1,8 +1,8 @@
 // For local testing
-const API_URL = 'http://localhost:3000';
+// const API_URL = 'http://localhost:3000';
 
 // For production (when deploying)
-// const API_URL = 'https://flokixsteam.onrender.com';
+const API_URL = 'https://flokixsteam.onrender.com';
 
 // Add this at the top of script.js
 const handleFetchError = async (response) => {
@@ -43,13 +43,23 @@ async function updateGamesDatabase() {
             mode: 'cors',
             credentials: 'omit'
         };
-        const response = await fetch(`${API_URL}/api/games`, fetchOptions);
-        await handleFetchError(response);
+        
+        // Add timeout to fetch
+        const controller = new AbortController();
+        const timeout = setTimeout(() => controller.abort(), 10000);
+        
+        const response = await fetch(`${API_URL}/api/games`, {
+            ...fetchOptions,
+            signal: controller.signal
+        });
+        
+        clearTimeout(timeout);
+        
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        
         const gamesData = await response.json();
-        
-        console.log('Received games:', gamesData);
-        
-        // Update games array with all games from the API
         games = gamesData;
         
         // Update UI elements
@@ -58,10 +68,16 @@ async function updateGamesDatabase() {
         updateFeaturedGames();
         updateLatestUpdates();
         
-        console.log(`Loaded ${games.length} games from API`);
     } catch (error) {
         console.error('Error updating games database:', error);
-        console.error('Full error:', error.stack);
+        // Show error message to user
+        document.getElementById('searchResult').innerHTML = `
+            <div style="color: #faa61a; padding: 15px; background: rgba(250, 166, 26, 0.1); border-radius: 10px;">
+                <h3>⚠️ Connection Error</h3>
+                <p>Unable to connect to the game database. Please try again later.</p>
+            </div>
+        `;
+        document.getElementById('searchResult').className = 'search-result show';
     }
 }
 
