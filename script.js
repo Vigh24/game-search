@@ -373,8 +373,39 @@ function createStars() {
     }
 }
 
-// Call this when the page loads
+// Add this function to create decorative elements
+function createDecorativeElements() {
+    // Create circles
+    const circles = ['circle-1', 'circle-2'].map(className => {
+        const circle = document.createElement('div');
+        circle.className = `decorative-circle ${className}`;
+        return circle;
+    });
+    
+    // Create floating dots container
+    const dotsContainer = document.createElement('div');
+    dotsContainer.className = 'floating-dots';
+    
+    // Create dots
+    for (let i = 0; i < 100; i++) {
+        const dot = document.createElement('div');
+        dot.className = 'dot';
+        dot.style.left = `${Math.random() * 100}%`;
+        dot.style.top = `${Math.random() * 100}%`;
+        dot.style.opacity = Math.random() * 0.5 + 0.1;
+        dot.style.transform = `scale(${Math.random() * 2 + 0.5})`;
+        dot.style.animation = `float-slow ${Math.random() * 10 + 10}s infinite ease-in-out ${Math.random() * 5}s`;
+        dotsContainer.appendChild(dot);
+    }
+    
+    // Add elements to body
+    circles.forEach(circle => document.body.appendChild(circle));
+    document.body.appendChild(dotsContainer);
+}
+
+// Update the DOMContentLoaded event listener
 document.addEventListener('DOMContentLoaded', () => {
     createStars();
     createParticles();
+    createDecorativeElements();
 });
