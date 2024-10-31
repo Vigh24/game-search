@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Game Search - Discord Community</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <meta name="theme-color" content="#05071b">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <style>
+        #test-indicator {
+            position: fixed;
+            top: 10px;
+            left: 10px;
+            background: rgba(255, 0, 0, 0.2);
+            color: #fff;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 12px;
+            z-index: 9999;
+        }
+    </style>
+</head>
+<body>
+    <div class="background-galaxy"></div>
+    <div class="container">
+        <div class="title-section">
+            <div class="title-wrapper">
+                <h1>Game Search</h1>
+                <p class="subtitle">Find and download your favorite games</p>
+            </div>
+            <div class="loader-card">
+                <div class="loader">
+                    <p>loading</p>
+                    <div class="words">
+                        <span class="word">Games</span>
+                        <span class="word">Cracks</span>
+                        <span class="word">Accounts</span>
+                        <span class="word">Tips</span>
+                        <span class="word">Tricks</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Add stats section -->
+        <div class="stats-container">
+            <div class="stat-card">
+                <div class="stat-icon">🎮</div>
+                <div class="stat-value" id="totalGames">0</div>
+                <div class="stat-label">Total Games</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">📥</div>
+                <div class="stat-value">1,234</div>
+                <div class="stat-label">Members</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">🔥</div>
+                <div class="stat-value" id="todayGames">0</div>
+                <div class="stat-label">Added Today</div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="members-info">
+                <span class="online-dot"></span>
+                <span class="members-text">1,234 members online</span>
+            </div>
+            
+            <div class="galaxy"></div>
+            <div id="search-container">
+                <div class="nebula"></div>
+                <div class="starfield"></div>
+                <div class="cosmic-dust"></div>
+                <div class="cosmic-dust"></div>
+                <div class="cosmic-dust"></div>
+                <div class="stardust"></div>
+                <div class="cosmic-ring"></div>
+
+                <div id="main">
+                    <input class="input" id="gameSearch" name="text" type="text" placeholder="Explore the cosmos..."/>
+                    <div id="input-mask"></div>
+                    <div id="cosmic-glow"></div>
+                    <div class="wormhole-border"></div>
+                    <div id="wormhole-icon">
+                        <svg stroke-linejoin="round" stroke-linecap="round" stroke-width="2" stroke="#a9c7ff" fill="none" height="24" width="24" viewBox="0 0 24 24">
+                            <circle r="10" cy="12" cx="12"></circle>
+                            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+                            <path d="M2 12h20"></path>
+                        </svg>
+                    </div>
+                    <div id="search-icon" onclick="searchGame()">
+                        <svg stroke-linejoin="round" stroke-linecap="round" stroke-width="2" stroke="url(#cosmic-search)" fill="none" height="24" width="24" viewBox="0 0 24 24">
+                            <circle r="8" cy="11" cx="11"></circle>
+                            <line y2="16.65" x2="16.65" y1="21" x1="21"></line>
+                            <defs>
+                                <linearGradient gradientTransform="rotate(45)" id="cosmic-search">
+                                    <stop stop-color="#a9c7ff" offset="0%"></stop>
+                                    <stop stop-color="#6e8cff" offset="100%"></stop>
+                                </linearGradient>
+                            </defs>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+
+            <div id="searchResult" class="search-result">
+                <!-- Results will be displayed here -->
+            </div>
+
+            <div class="recent-searches">
+                <h3>Popular Games</h3>
+                <div class="game-tags">
+                    <span class="game-tag" onclick="quickSearch('Minecraft')">Minecraft</span>
+                    <span class="game-tag" onclick="quickSearch('GTA V')">GTA V</span>
+                    <span class="game-tag" onclick="quickSearch('Fortnite')">Fortnite</span>
+                    <span class="game-tag" onclick="quickSearch('Valorant')">Valorant</span>
+                </div>
+            </div>
+
+            <div class="discord-link">
+                <a href="https://discord.com" target="_blank" class="discord-btn">
+                    <div class="svg-wrapper">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="40" height="40">
+                            <path fill="none" d="M0 0h24v24H0z"></path>
+                            <path fill="currentColor" d="M13.545 2.907a13.227 13.227 0 0 0-3.257-1.011.05.05 0 0 0-.052.025c-.141.25-.297.577-.406.833a12.19 12.19 0 0 0-3.658 0 8.258 8.258 0 0 0-.412-.833.051.051 0 0 0-.052-.025c-1.125.194-2.22.534-3.257 1.011a.041.041 0 0 0-.021.018C.356 6.024-.213 9.047.066 12.032c.001.014.01.028.021.037a13.276 13.276 0 0 0 3.995 2.02.05.05 0 0 0 .056-.019c.308-.42.582-.863.818-1.329a.05.05 0 0 0-.01-.059.051.051 0 0 0-.018-.011 8.875 8.875 0 0 1-1.248-.595.05.05 0 0 1-.02-.066.051.051 0 0 1 .015-.019c.084-.063.168-.129.248-.195a.05.05 0 0 1 .051-.007c2.619 1.196 5.454 1.196 8.041 0a.052.052 0 0 1 .053.007c.08.066.164.132.248.195a.051.051 0 0 1-.004.085 8.254 8.254 0 0 1-1.249.594.05.05 0 0 0-.03.03.052.052 0 0 0 .003.041c.24.465.515.909.817 1.329a.05.05 0 0 0 .056.019 13.235 13.235 0 0 0 4.001-2.02.049.049 0 0 0 .021-.037c.334-3.451-.559-6.449-2.366-9.106a.034.034 0 0 0-.02-.019Z"></path>
+                        </svg>
+                    </div>
+                    <span>Join Discord for Access</span>
+                </a>
+            </div>
+
+            <!-- Add featured games section -->
+            <div class="featured-games">
+                <h3>🌟 Featured Games</h3>
+                <div class="game-grid" id="featuredGames">
+                    <!-- Will be populated by JavaScript -->
+                </div>
+            </div>
+
+            <!-- Add categories section -->
+            <div class="categories">
+                <h3>🎯 Categories</h3>
+                <div class="category-tags">
+                    <span class="category-tag">Action</span>
+                    <span class="category-tag">Adventure</span>
+                    <span class="category-tag">RPG</span>
+                    <span class="category-tag">Sports</span>
+                    <span class="category-tag">Racing</span>
+                    <span class="category-tag">Strategy</span>
+                </div>
+            </div>
+
+            <!-- Add latest updates section -->
+            <div class="latest-updates">
+                <h3>📢 Latest Updates</h3>
+                <div class="updates-list" id="latestUpdates">
+                    <!-- Will be populated by JavaScript -->
+                </div>
+            </div>
+
+            <!-- Add footer section -->
+            <div class="footer">
+                <div class="footer-stats">
+                    <span>🎮 Games Added: <span id="monthlyGames">0</span> this month</span>
+                    <span>⚡ Active Users: <span id="activeUsers">0</span></span>
+                </div>
+                <div class="footer-links">
+                    <a href="#rules">Rules</a>
+                    <a href="#faq">FAQ</a>
+                    <a href="#support">Support</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html> <!-- Deployed at: Thu Oct 31 09:18:28 UTC 2024 -->
