@@ -1314,7 +1314,7 @@ h2 {
 .title-section {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    gap: 2rem;
     padding: 2.5rem;
     background: rgba(5, 7, 27, 0.8);
     border-radius: 25px;
@@ -1325,28 +1325,47 @@ h2 {
 }
 
 .title-content {
-    text-align: left;
     flex: 1;
-    padding-right: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .stats-badges {
     display: flex;
-    gap: 1.5rem;
+    gap: 1rem;
     align-items: center;
+    margin-left: auto;
 }
 
 .stat-badge {
     background: rgba(88, 101, 242, 0.1);
-    padding: 1rem 1.5rem;
+    padding: 1rem;
     border-radius: 15px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     gap: 0.5rem;
     transition: all 0.3s ease;
     border: 1px solid rgba(169, 199, 255, 0.1);
-    min-width: 120px;
+    min-width: 100px;
+    height: 100px;
+}
+
+.stat-value {
+    font-size: 2rem;
+    font-weight: bold;
+    background: linear-gradient(45deg, #fff, #956afa);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin: 0;
+}
+
+.stat-label {
+    font-size: 0.9rem;
+    color: #a9c7ff;
+    text-align: center;
 }
 
 /* Responsive adjustments */
@@ -1358,14 +1377,18 @@ h2 {
     }
 
     .title-content {
-        text-align: center;
-        padding-right: 0;
         margin-bottom: 1.5rem;
+        align-items: center;
     }
 
     .stats-badges {
-        flex-direction: row;
-        flex-wrap: wrap;
+        width: 100%;
         justify-content: center;
+        margin-left: 0;
+    }
+
+    .stat-badge {
+        min-width: 90px;
+        height: 90px;
     }
 }
