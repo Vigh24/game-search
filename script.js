@@ -1,4 +1,8 @@
-const API_URL = 'https://flokixsteam.onrender.com';
+// For local testing
+const API_URL = 'http://localhost:3000';
+
+// For production (when deploying)
+// const API_URL = 'https://flokixsteam.onrender.com';
 
 // Add this at the top of script.js
 const handleFetchError = async (response) => {
@@ -299,3 +303,19 @@ setInterval(updateFooterStats, 60 * 1000); // Update every minute
 
 // Add periodic updates for member counts
 setInterval(updateMemberCounts, 60 * 1000); // Update every minute
+
+// Add this at the end of script.js
+function createParticles() {
+    const container = document.body;
+    for (let i = 0; i < 50; i++) {
+        const particle = document.createElement('div');
+        particle.className = 'particle';
+        particle.style.left = Math.random() * 100 + 'vw';
+        particle.style.top = Math.random() * 100 + 'vh';
+        particle.style.animationDelay = Math.random() * 20 + 's';
+        container.appendChild(particle);
+    }
+}
+
+// Call this when the page loads
+document.addEventListener('DOMContentLoaded', createParticles);
