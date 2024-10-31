@@ -1,0 +1,14 @@
+{
+    "name": "game-search",
+    "version": "1.0.0",
+    "description": "Game Search Frontend",
+    "main": "index.html",
+    "scripts": {
+      "start": "serve",
+      "build": "echo 'No build required'"
+    },
+    "dependencies": {
+      "serve": "^14.0.0"
+    }
+  }
+  

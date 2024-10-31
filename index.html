@@ -2,35 +2,16 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Game Search - Discord Community</title>
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
-    <meta name="theme-color" content="#05071b">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <style>
-        #test-indicator {
-            position: fixed;
-            top: 10px;
-            left: 10px;
-            background: rgba(255, 0, 0, 0.2);
-            color: #fff;
-            padding: 5px 10px;
-            border-radius: 5px;
-            font-size: 12px;
-            z-index: 9999;
-        }
-    </style>
 </head>
 <body>
     <div class="background-galaxy"></div>
     <div class="container">
         <div class="title-section">
-            <div class="title-wrapper">
-                <h1>Game Search</h1>
-                <p class="subtitle">Find and download your favorite games</p>
-            </div>
+            <h1>Game Search</h1>
             <div class="loader-card">
                 <div class="loader">
                     <p>loading</p>
@@ -44,7 +25,8 @@
                 </div>
             </div>
         </div>
-
+        <p class="subtitle">Search for games available in our Discord community</p>
+        
         <!-- Add stats section -->
         <div class="stats-container">
             <div class="stat-card">
@@ -81,7 +63,7 @@
                 <div class="cosmic-ring"></div>
 
                 <div id="main">
-                    <input class="input" id="gameSearch" name="text" type="text" placeholder="Explore the cosmos..."/>
+                    <input class="input" id="gameSearch" name="text" type="text" placeholder="Search for games...">
                     <div id="input-mask"></div>
                     <div id="cosmic-glow"></div>
                     <div class="wormhole-border"></div>
@@ -179,4 +161,4 @@
 
     <script src="script.js"></script>
 </body>
-</html> <!-- Deployed at: Thu Oct 31 09:18:28 UTC 2024 -->
+</html> 
