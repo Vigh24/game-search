@@ -1003,3 +1003,142 @@ h1 {
         height: 50px;
     }
 }
+
+/* Add these new styles at the end of your file */
+
+/* Enhanced search box */
+.search-box {
+    position: relative;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    background: rgba(5, 7, 27, 0.8);
+    border-radius: 20px;
+    padding: 8px;
+    border: 2px solid rgba(169, 199, 255, 0.2);
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+}
+
+.search-box:hover {
+    border-color: rgba(169, 199, 255, 0.3);
+    transform: translateY(-2px);
+}
+
+.search-box .input {
+    width: 100%;
+    background: transparent;
+    border: none;
+    padding: 15px 50px;
+    font-size: 18px;
+    color: #fff;
+}
+
+.search-box .input:focus {
+    outline: none;
+}
+
+.search-icon {
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 24px;
+    height: 24px;
+    color: #a9c7ff;
+}
+
+/* Enhanced sections */
+.popular-games,
+.featured-section,
+.categories-section {
+    background: rgba(5, 7, 27, 0.6);
+    border-radius: 20px;
+    padding: 2rem;
+    margin: 2rem 0;
+    border: 1px solid rgba(169, 199, 255, 0.1);
+    backdrop-filter: blur(10px);
+}
+
+h2 {
+    color: #fff;
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    background: linear-gradient(45deg, #fff, #956afa);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Enhanced Discord button */
+.discord-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    background: #5865F2;
+    color: white;
+    padding: 12px 24px;
+    border-radius: 12px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.discord-button:hover {
+    background: #4752C4;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 16px rgba(88, 101, 242, 0.2);
+}
+
+.discord-icon {
+    width: 24px;
+    height: 24px;
+}
+
+/* Enhanced footer */
+.footer {
+    background: rgba(5, 7, 27, 0.8);
+    border-radius: 20px;
+    padding: 2rem;
+    margin-top: 3rem;
+    border-top: 1px solid rgba(169, 199, 255, 0.1);
+}
+
+.footer-links a {
+    color: #a9c7ff;
+    text-decoration: none;
+    padding: 8px 16px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.footer-links a:hover {
+    background: rgba(169, 199, 255, 0.1);
+    color: #fff;
+}
+
+/* Animation for sections */
+.popular-games,
+.featured-section,
+.categories-section,
+.discord-section {
+    animation: fadeInUp 0.6s ease-out;
+    animation-fill-mode: both;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Stagger animations */
+.popular-games { animation-delay: 0.2s; }
+.featured-section { animation-delay: 0.4s; }
+.categories-section { animation-delay: 0.6s; }
+.discord-section { animation-delay: 0.8s; }
