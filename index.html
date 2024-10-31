@@ -12,7 +12,6 @@
     <div class="container">
         <div class="title-section">
             <h1>Game Search</h1>
-            <p class="subtitle">Find and download your favorite games</p>
             <div class="loader-card">
                 <div class="loader">
                     <p>loading</p>
@@ -26,7 +25,8 @@
                 </div>
             </div>
         </div>
-
+        <p class="subtitle">Search for games available in our Discord community</p>
+        
         <!-- Add stats section -->
         <div class="stats-container">
             <div class="stat-card">
@@ -63,7 +63,7 @@
                 <div class="cosmic-ring"></div>
 
                 <div id="main">
-                    <input class="input" id="gameSearch" name="text" type="text" placeholder="Explore the cosmos...">
+                    <input class="input" id="gameSearch" name="text" type="text" placeholder="Search for games...">
                     <div id="input-mask"></div>
                     <div id="cosmic-glow"></div>
                     <div class="wormhole-border"></div>
@@ -159,22 +159,6 @@
         </div>
     </div>
 
-    <!-- Add this right after the body tag opens -->
-    <div id="test-overlay">
-        <div class="test-content">
-            <h3>🔄 Testing Changes</h3>
-            <p>Version: <span id="test-version">1.0.0</span></p>
-            <p>Last Update: <span id="test-timestamp"></span></p>
-            <p>Status: <span id="test-status">Checking changes...</span></p>
-        </div>
-    </div>
-
     <script src="script.js"></script>
-    <script>
-        document.getElementById('test-timestamp').textContent = new Date().toLocaleString();
-        // Update version when we make changes
-        document.getElementById('test-version').textContent = '1.0.1 - Cosmic Search Update';
-        document.getElementById('test-status').textContent = 'Changes Applied ✅';
-    </script>
 </body>
 </html> 
