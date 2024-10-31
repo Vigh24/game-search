@@ -33,33 +33,28 @@ function parseDiscordMessage(message) {
 // Function to update games database
 async function updateGamesDatabase() {
     try {
-        console.log('Fetching games from:', `${API_URL}/api/games`);
         const fetchOptions = {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
-                'Accept': 'application/json'
+                'Accept': 'application/json',
+                'Origin': 'https://vigh24.github.io'
             },
-            mode: 'cors',
-            credentials: 'omit'
+            mode: 'cors'
         };
-        
-        // Add timeout to fetch
-        const controller = new AbortController();
-        const timeout = setTimeout(() => controller.abort(), 10000);
-        
-        const response = await fetch(`${API_URL}/api/games`, {
-            ...fetchOptions,
-            signal: controller.signal
-        });
-        
-        clearTimeout(timeout);
+
+        const response = await fetch(`${API_URL}/api/games`, fetchOptions);
         
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
         }
         
         const gamesData = await response.json();
+        
+        if (!Array.isArray(gamesData)) {
+            throw new Error('Invalid data format received');
+        }
+
         games = gamesData;
         
         // Update UI elements
@@ -70,14 +65,7 @@ async function updateGamesDatabase() {
         
     } catch (error) {
         console.error('Error updating games database:', error);
-        // Show error message to user
-        document.getElementById('searchResult').innerHTML = `
-            <div style="color: #faa61a; padding: 15px; background: rgba(250, 166, 26, 0.1); border-radius: 10px;">
-                <h3>⚠️ Connection Error</h3>
-                <p>Unable to connect to the game database. Please try again later.</p>
-            </div>
-        `;
-        document.getElementById('searchResult').className = 'search-result show';
+        showErrorMessage('Unable to connect to the game database. Please try again later.');
     }
 }
 
@@ -245,13 +233,17 @@ function updateFeaturedGames() {
 }
 
 function updateLatestUpdates() {
+    const updatesContainer = document.getElementById('latestUpdates');
+    if (!updatesContainer || !games) return;
+
     const updates = games.slice(0, 5).map(game => `
         <div class="update-item">
             <div class="update-title">📥 ${game.name}</div>
-            <div class="update-info">Added by ${game.postedBy} • ${game.postedAt}</div>
+            <div class="update-info">Added by ${game.postedBy || 'Unknown'} • ${game.postedAt || 'Recently'}</div>
         </div>
     `).join('');
-    document.getElementById('latestUpdates').innerHTML = updates;
+    
+    updatesContainer.innerHTML = updates;
 }
 
 // Add this function to count monthly games
@@ -335,3 +327,17 @@ function createParticles() {
 
 // Call this when the page loads
 document.addEventListener('DOMContentLoaded', createParticles);
+
+// Add helper function for error messages
+function showErrorMessage(message) {
+    const searchResult = document.getElementById('searchResult');
+    if (searchResult) {
+        searchResult.innerHTML = `
+            <div class="error-message">
+                <h3>⚠️ Connection Error</h3>
+                <p>${message}</p>
+            </div>
+        `;
+        searchResult.className = 'search-result show';
+    }
+}
